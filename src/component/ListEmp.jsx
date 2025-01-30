@@ -22,7 +22,7 @@ const ListEmp = () => {
   return (
     <div className="container-fluid">
       <div className="row mt-4">
-        <div className="col-12  px-4 ">
+        <div className="col-12 px-4">
           <div className="card">
             <div className="card-header d-flex justify-content-between">
               <h4 className="m-0">EMPLOYEE LIST</h4>
@@ -31,23 +31,21 @@ const ListEmp = () => {
               </NavLink>
             </div>
             <div className="card-body">
-              <table className="table table-striped">
-                <thead>
-                  <tr>
-                    <th className="text-center">SR.NO</th>
-                    <th className="text-center">NAME</th>
-                    <th className="text-center">ID</th>
-                    <th className="text-center">EMAIL</th>
-                    <th className="text-center">DESIGNATION</th>
-                    <th className="text-center">SALARY</th>
-
-                    {/* <th className="text-center">PERFORMANCE</th> */}
-                    <th className="text-center">ACTION</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {employeeList?.map((employe, index) => {
-                    return (
+              <div className="table-responsive">
+                <table className="table table-striped">
+                  <thead>
+                    <tr>
+                      <th className="text-center">SR.NO</th>
+                      <th className="text-center">NAME</th>
+                      <th className="text-center">ID</th>
+                      <th className="text-center">EMAIL</th>
+                      <th className="text-center">DESIGNATION</th>
+                      <th className="text-center">SALARY</th>
+                      <th className="text-center">ACTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {employeeList?.map((employe, index) => (
                       <tr key={index + 1}>
                         <th className="text-center">{index + 1}</th>
                         <td className="text-center">{employe?.EmployeeName}</td>
@@ -55,27 +53,25 @@ const ListEmp = () => {
                         <td className="text-center">{employe?.Email}</td>
                         <td className="text-center">{employe?.Designation}</td>
                         <td className="text-center">{employe?.Salary}</td>
-
-                        {/* <td className="text-center">{employe?.Performance}</td> */}
                         <td className="text-center">
                           <i
-                            className="fa-solid fa-eye pe-2 pointer text-primary pointer"
+                            className="fa-solid fa-eye pe-2 pointer text-primary"
                             onClick={() => handleView(index)}
                           ></i>
                           <i
-                            className="fa-solid fa-pen-to-square pe-2 cursor-pointer text-success pointer"
+                            className="fa-solid fa-pen-to-square pe-2 cursor-pointer text-success"
                             onClick={() => handleUpdate(employe, index)}
                           ></i>
                           <i
-                            className="fa-solid fa-trash pe-2 cursor-pointer text-danger pointer"
+                            className="fa-solid fa-trash pe-2 cursor-pointer text-danger"
                             onClick={() => handleDelete(index)}
                           ></i>
                         </td>
                       </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
